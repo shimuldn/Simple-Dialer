@@ -12,6 +12,7 @@ const val OPEN_DIAL_PAD_AT_LAUNCH = "open_dial_pad_at_launch"
 const val DISABLE_PROXIMITY_SENSOR = "disable_proximity_sensor"
 const val DISABLE_SWIPE_TO_ANSWER = "disable_swipe_to_answer"
 const val SHOW_TABS = "show_tabs"
+const val TRUECALLER_TOKEN = "truecaller_token"
 
 const val ALL_TABS_MASK = TAB_CONTACTS or TAB_FAVORITES or TAB_CALL_HISTORY
 
@@ -20,3 +21,9 @@ val tabsList = arrayListOf(TAB_CONTACTS, TAB_FAVORITES, TAB_CALL_HISTORY)
 private const val PATH = "com.simplemobiletools.dialer.action."
 const val ACCEPT_CALL = PATH + "accept_call"
 const val DECLINE_CALL = PATH + "decline_call"
+
+//TrueCaller
+const val BASE_URL = "https://webapi-noneu.truecaller.com"
+const val NO_INTERNET = "No Internet"
+const val TRUECALLER = "Truecaller - "
+const val COUNTRY_CODE = "in"

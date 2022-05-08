@@ -21,6 +21,12 @@
     <string name="asterisk">Asterisc</string>
     <string name="hashtag">Hashtag</string>
     <string name="call_number">Apelaţi numărul</string>
+
+    <!-- TrueCaller auth Token -->
+    <string name="truecaller_auth_token">Truecaller Auth Token</string>
+    <string name="token">Token</string>
+
+
     <!-- Dialer -->
     <string name="dialer">Apeluri</string>
     <string name="accept">Acceptați</string>

@@ -41,6 +41,7 @@ class SettingsActivity : SimpleActivity() {
         setupShowCallConfirmation()
         setupDisableProximitySensor()
         setupDisableSwipeToAnswer()
+        setupTruecallerAuthToken()
         updateTextColors(settings_holder)
         invalidateOptionsMenu()
 
@@ -69,16 +70,16 @@ class SettingsActivity : SimpleActivity() {
     }
 
     private fun setupPurchaseThankYou() {
-        settings_purchase_thank_you_holder.beGoneIf(isOrWasThankYouInstalled())
-
-        // make sure the corners at ripple fit the stroke rounded corners
-        if (settings_purchase_thank_you_holder.isGone()) {
-            settings_use_english_holder.background = resources.getDrawable(R.drawable.ripple_top_corners, theme)
-        }
-
-        settings_purchase_thank_you_holder.setOnClickListener {
-            launchPurchaseThankYouIntent()
-        }
+//        settings_purchase_thank_you_holder.beGoneIf(isOrWasThankYouInstalled())
+//
+//        // make sure the corners at ripple fit the stroke rounded corners
+//        if (settings_purchase_thank_you_holder.isGone()) {
+//            settings_use_english_holder.background = resources.getDrawable(R.drawable.ripple_top_corners, theme)
+//        }
+//
+//        settings_purchase_thank_you_holder.setOnClickListener {
+//            launchPurchaseThankYouIntent()
+//        }
     }
 
     private fun setupCustomizeColors() {
@@ -92,9 +93,9 @@ class SettingsActivity : SimpleActivity() {
         settings_use_english_holder.beVisibleIf(config.wasUseEnglishToggled || Locale.getDefault().language != "en")
         settings_use_english.isChecked = config.useEnglish
 
-        if (settings_use_english_holder.isGone() && settings_purchase_thank_you_holder.isGone()) {
-            settings_manage_blocked_numbers_holder.background = resources.getDrawable(R.drawable.ripple_top_corners, theme)
-        }
+//        if (settings_use_english_holder.isGone() && settings_purchase_thank_you_holder.isGone()) {
+//            settings_manage_blocked_numbers_holder.background = resources.getDrawable(R.drawable.ripple_top_corners, theme)
+//        }
 
         settings_use_english_holder.setOnClickListener {
             settings_use_english.toggle()
@@ -108,9 +109,9 @@ class SettingsActivity : SimpleActivity() {
     private fun setupManageBlockedNumbers() {
         settings_manage_blocked_numbers_holder.beVisibleIf(isNougatPlus())
 
-        if (settings_use_english_holder.isGone() && settings_purchase_thank_you_holder.isGone() && settings_manage_blocked_numbers_holder.isGone()) {
-            settings_change_date_time_format_holder.background = resources.getDrawable(R.drawable.ripple_top_corners, theme)
-        }
+//        if (settings_use_english_holder.isGone() && settings_purchase_thank_you_holder.isGone() && settings_manage_blocked_numbers_holder.isGone()) {
+//            settings_change_date_time_format_holder.background = resources.getDrawable(R.drawable.ripple_top_corners, theme)
+//        }
 
         settings_manage_blocked_numbers_holder.setOnClickListener {
             Intent(this, ManageBlockedNumbersActivity::class.java).apply {
@@ -130,6 +131,13 @@ class SettingsActivity : SimpleActivity() {
     private fun setupChangeDateTimeFormat() {
         settings_change_date_time_format_holder.setOnClickListener {
             ChangeDateTimeFormatDialog(this) {}
+        }
+    }
+
+    private fun setupTruecallerAuthToken() {
+        settings_truecaller_auth_token_holder.setOnClickListener {
+            SaveTrueCallerTokenActivity(this) {
+            }
         }
     }
 

@@ -59,18 +59,20 @@
             android:orientation="vertical">
 
             <RelativeLayout
-                android:id="@+id/settings_purchase_thank_you_holder"
+                android:id="@+id/settings_truecaller_auth_token_holder"
                 style="@style/SettingsHolderTextViewOneLinerStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/ripple_top_corners">
+                android:background="@drawable/ripple_top_corners"
+                android:visibility="visible"
+                tools:visibility="visible">
 
                 <com.simplemobiletools.commons.views.MyTextView
-                    android:id="@+id/settings_purchase_thank_you_label"
+                    android:id="@+id/settings_truecaller_auth_token"
                     style="@style/SettingsTextLabelStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/purchase_simple_thank_you" />
+                    android:text="@string/truecaller_auth_token" />
 
             </RelativeLayout>
 

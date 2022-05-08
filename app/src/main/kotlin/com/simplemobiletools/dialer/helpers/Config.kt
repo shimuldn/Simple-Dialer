@@ -59,4 +59,12 @@ class Config(context: Context) : BaseConfig(context) {
     var showTabs: Int
         get() = prefs.getInt(SHOW_TABS, ALL_TABS_MASK)
         set(showTabs) = prefs.edit().putInt(SHOW_TABS, showTabs).apply()
+    
+    fun saveTrueCallerToken(trueCallerToken: String) {
+        prefs.edit().putString(TRUECALLER_TOKEN, trueCallerToken).apply()
+    }
+
+    fun getTrueCallerToken(): String? {
+        return prefs.getString(TRUECALLER_TOKEN, "")
+    }
 }

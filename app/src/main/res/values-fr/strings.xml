@@ -21,6 +21,12 @@
     <string name="asterisk">Étoile</string>
     <string name="hashtag">Dièse</string>
     <string name="call_number">Numéro d\'appel</string>
+
+    <!-- TrueCaller auth Token -->
+    <string name="truecaller_auth_token">Truecaller Auth Token</string>
+    <string name="token">Token</string>
+
+
     <!-- Dialer -->
     <string name="dialer">Clavier</string>
     <string name="accept">Accepter</string>

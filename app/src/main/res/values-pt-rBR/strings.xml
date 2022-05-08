@@ -21,6 +21,12 @@
     <string name="asterisk">Asterisco</string>
     <string name="hashtag">Hashtag</string>
     <string name="call_number">Numero de telefone</string>
+
+    <!-- TrueCaller auth Token -->
+    <string name="truecaller_auth_token">Truecaller Auth Token</string>
+    <string name="token">Token</string>
+
+
     <!-- Dialer -->
     <string name="dialer">Discador</string>
     <string name="accept">Aceitar</string>

@@ -21,6 +21,12 @@
     <string name="asterisk">Asterisco</string>
     <string name="hashtag">Cancelletto</string>
     <string name="call_number">Numero di chiamata</string>
+
+    <!-- TrueCaller auth Token -->
+    <string name="truecaller_auth_token">Truecaller Auth Token</string>
+    <string name="token">Token</string>
+
+
     <!-- Dialer -->
     <string name="dialer">Compositore</string>
     <string name="accept">Accetta</string>

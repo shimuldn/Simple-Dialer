@@ -21,6 +21,11 @@
     <string name="asterisk">Sternchen</string>
     <string name="hashtag">Raute</string>
     <string name="call_number">Rufnummer</string>
+
+    <!-- TrueCaller auth Token -->
+    <string name="truecaller_auth_token">Truecaller Auth Token</string>
+    <string name="token">Token</string>
+
     <!-- Dialer -->
     <string name="dialer">Telefon</string>
     <string name="accept">akzeptieren</string>

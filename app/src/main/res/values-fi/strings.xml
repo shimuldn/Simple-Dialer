@@ -21,6 +21,11 @@
     <string name="asterisk">Asteriski</string>
     <string name="hashtag">Hashtag</string>
     <string name="call_number">Soita numeroon</string>
+
+    <!-- TrueCaller auth Token -->
+    <string name="truecaller_auth_token">Truecaller Auth Token</string>
+    <string name="token">Token</string>
+
     <!-- Dialer -->
     <string name="dialer">Puhelin</string>
     <string name="accept">Hyväksy</string>

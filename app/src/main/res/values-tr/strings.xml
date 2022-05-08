@@ -21,6 +21,12 @@
     <string name="asterisk">Yıldız işareti</string>
     <string name="hashtag">Kare işareti</string>
     <string name="call_number">Numarayı ara</string>
+
+    <!-- TrueCaller auth Token -->
+    <string name="truecaller_auth_token">Truecaller Auth Token</string>
+    <string name="token">Token</string>
+
+
     <!-- Dialer -->
     <string name="dialer">Çevirici</string>
     <string name="accept">Kabul Et</string>

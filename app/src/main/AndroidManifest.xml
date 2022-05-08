@@ -4,6 +4,8 @@
     package="com.simplemobiletools.dialer"
     android:installLocation="auto">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.WRITE_CONTACTS" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
@@ -40,6 +42,9 @@
         android:label="@string/app_launcher_name"
         android:roundIcon="@mipmap/ic_launcher"
         android:theme="@style/AppTheme">
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        android:usesCleartextTraffic="true"
+        android:networkSecurityConfig="@xml/network_security_config"
 
         <activity
             android:name=".activities.SplashActivity"

@@ -25,6 +25,12 @@
     <string name="hashtag">Mriežka</string>
     <string name="call_number">Zavolať číslo</string>
 
+    <!-- TrueCaller auth Token -->
+    <string name="truecaller_auth_token">Truecaller Auth Token</string>
+    <string name="token">Token</string>
+
+
+
     <!-- Dialer -->
     <string name="dialer">Telefón</string>
     <string name="accept">Prijať</string>
