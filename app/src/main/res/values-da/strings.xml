@@ -87,6 +87,7 @@
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
+    <string name="truecaller_server">Truecaller Server</string>
     <!--
         Kan du ikke finde nogle strenge? Der er mere på
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

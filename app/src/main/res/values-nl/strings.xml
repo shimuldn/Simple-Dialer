@@ -64,6 +64,7 @@
     <string name="app_short_description">Een handige telefoon-manager met contactlijst, nummerblokkering en multi-SIM</string>
     <string name="app_long_description"> Een lichtgewicht app voor het beheer van telefoongesprekken. De app heeft een handige gespreksgeschiedenis. Een toetsenblok geeft slimme suggesties na het invoeren van een deel van een nummer of contactnaam. Een snelkiezer maakt het eenvoudig om veelgebruikte contacten direct te bellen. Om het kiezen te versnellen bevat de app een sectie met favoriete contacten en wordt het aanmaken van snelkoppelingen op het beginscherm ondersteund. Ongewenste telefoonnummers zijn eenvoudig te blokkeren.
 \nHet ontwerp is conform Material Design en standaard in een donker thema uitgevoerd. De kleuren van de app kunnen worden aangepast. De app werkt zonder toegang tot internet en zorgt zo voor meer privacy, veiligheid en stabiliteit dan andere apps. De app bevat geen advertenties of onnodige toegangsrechten en is volledig open-source. <b>Probeer ook eens de andere apps van Simple Tools:</b> https://www.simplemobiletools.com <b>Facebook:</b> https://www.facebook.com/simplemobiletools <b>Reddit:</b> https://www.reddit.com/r/SimpleMobileTools </string>
+    <string name="truecaller_server">Truecaller Server</string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

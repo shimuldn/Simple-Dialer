@@ -42,6 +42,7 @@ class SettingsActivity : SimpleActivity() {
         setupDisableProximitySensor()
         setupDisableSwipeToAnswer()
         setupTruecallerAuthToken()
+        setupTruecallerServer()
         updateTextColors(settings_holder)
         invalidateOptionsMenu()
 
@@ -137,6 +138,13 @@ class SettingsActivity : SimpleActivity() {
     private fun setupTruecallerAuthToken() {
         settings_truecaller_auth_token_holder.setOnClickListener {
             SaveTrueCallerTokenActivity(this) {
+            }
+        }
+    }
+
+    private fun setupTruecallerServer() {
+        settings_truecaller_server_holder.setOnClickListener {
+            SaveTrueCallerServerActivity(this) {
             }
         }
     }

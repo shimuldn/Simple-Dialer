@@ -13,6 +13,7 @@ const val DISABLE_PROXIMITY_SENSOR = "disable_proximity_sensor"
 const val DISABLE_SWIPE_TO_ANSWER = "disable_swipe_to_answer"
 const val SHOW_TABS = "show_tabs"
 const val TRUECALLER_TOKEN = "truecaller_token"
+const val TRUECALLER_SERVER = "truecaller_server"
 
 const val ALL_TABS_MASK = TAB_CONTACTS or TAB_FAVORITES or TAB_CALL_HISTORY
 
@@ -23,7 +24,13 @@ const val ACCEPT_CALL = PATH + "accept_call"
 const val DECLINE_CALL = PATH + "decline_call"
 
 //TrueCaller
-const val BASE_URL = "https://webapi-noneu.truecaller.com"
+//const val BASE_URL = "https://webapi-noneu.truecaller.com"
+const val BASE_URL = "https://true.shimul.me"
 const val NO_INTERNET = "No Internet"
-const val TRUECALLER = "Truecaller - "
+const val TRUECALLER = "TC- "
 const val COUNTRY_CODE = "in"
+
+//const val TRUECALLER_BASE_URL = "https://webapi-noneu.truecaller.com"
+//const val PROXY_BASE_URL = "https://true.shimul.me"
+
+

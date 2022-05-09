@@ -55,6 +55,43 @@
         app:layout_constraintTop_toBottomOf="@+id/caller_number"
         tools:text="Is Calling" />
 
+    <com.simplemobiletools.commons.views.MyTextView
+        android:id="@+id/truecaller_name_label"
+        android:layout_width="411dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:gravity="center_horizontal"
+        android:textSize="@dimen/caller_name_text_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/call_status_label"
+        tools:text="TrueCaller name" />
+
+    <com.simplemobiletools.commons.views.MyTextView
+        android:id="@+id/truecaller_from_carrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:alpha="0.8"
+        android:textSize="@dimen/call_status_text_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/truecaller_name_label"
+        tools:text="From Carrier" />
+
+    <com.simplemobiletools.commons.views.MyTextView
+        android:id="@+id/truecaller_spam_type_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:alpha="0.8"
+        android:textSize="@dimen/call_status_text_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/truecaller_from_carrier"
+        tools:layout_editor_absoluteX="73dp"
+        tools:text="SpamType Number of Report" />
+
     <ImageView
         android:id="@+id/call_sim_image"
         android:layout_width="@dimen/normal_icon_size"
@@ -92,6 +129,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-16dp"
         tools:visibility="visible">
 
         <ImageView

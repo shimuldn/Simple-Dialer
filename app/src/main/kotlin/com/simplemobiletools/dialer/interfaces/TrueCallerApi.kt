@@ -18,8 +18,12 @@ interface TrueCallerApi {
     suspend fun getTrueCallerResponse(
         @Query("countryCode") countryCode: String,
         @Query("q") mobileNumber: String,
-        @Header("Authorization") authorizationToken: String
+        @Header("Authorization") authorizationToken: String,
+        @Header("server-mode") serverMode: String,
+        @Header("user-agent") userAgent: String  = "Truecaller/12.19.7 (Android;10)"
     ): Response<TrueCallerResponse>
+
+
 
     companion object {
         operator fun invoke(

@@ -8,7 +8,7 @@ import retrofit2.Response
 
 class TrueCallerService {
 
-    suspend fun getTrueCallerResponse(mobileNumber: String, authorizationToken: String, networkConnectionInterceptor: NetworkConnectionInterceptor): Response<TrueCallerResponse> {
-        return TrueCallerApi.invoke(networkConnectionInterceptor).getTrueCallerResponse(COUNTRY_CODE,mobileNumber,authorizationToken)
+    suspend fun getTrueCallerResponse(mobileNumber: String, authorizationToken: String, serverMode: String, networkConnectionInterceptor: NetworkConnectionInterceptor): Response<TrueCallerResponse> {
+        return TrueCallerApi.invoke(networkConnectionInterceptor).getTrueCallerResponse(COUNTRY_CODE,mobileNumber,authorizationToken,serverMode)
     }
 }

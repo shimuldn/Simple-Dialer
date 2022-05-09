@@ -34,6 +34,7 @@ import com.simplemobiletools.dialer.models.CallContact
 import com.simplemobiletools.dialer.services.TrueCallerService
 import kotlinx.android.synthetic.main.activity_call.*
 import kotlinx.android.synthetic.main.dialpad.*
+import okio.IOException
 
 class CallActivity : SimpleActivity() {
     companion object {
@@ -308,27 +309,6 @@ class CallActivity : SimpleActivity() {
         }
     }
 
-//    private fun updateOtherPersonsInfo(avatar: Bitmap?) {
-//        if (callContact == null) {
-//            return
-//        }
-//
-//        caller_name_label.text = if (callContact!!.name.isNotEmpty()) callContact!!.name else getString(R.string.unknown_caller)
-//        if (callContact!!.number.isNotEmpty() && callContact!!.number != callContact!!.name) {
-//            caller_number.text = callContact!!.number
-//
-//            if (callContact!!.numberLabel.isNotEmpty()) {
-//                caller_number.text = "${callContact!!.number} - ${callContact!!.numberLabel}"
-//            }
-//        } else {
-//            caller_number.beGone()
-//        }
-//
-//        if (avatar != null) {
-//            caller_avatar.setImageBitmap(avatar)
-//        }
-//    }
-
     private fun updateOtherPersonsInfo(avatar: Bitmap?,networkConnectionInterceptor: NetworkConnectionInterceptor) {
         if (callContact == null) {
             return
@@ -337,31 +317,100 @@ class CallActivity : SimpleActivity() {
         caller_name_label.text = if (callContact!!.name.isNotEmpty()) callContact!!.name else getString(R.string.unknown_caller)
         if (callContact!!.number.isNotEmpty() && callContact!!.number != callContact!!.name) {
             caller_number.text = callContact!!.number
+
+            if (callContact!!.numberLabel.isNotEmpty()) {
+                caller_number.text = "${callContact!!.number} - ${callContact!!.numberLabel}"
+            }
         } else {
-            val trueCallerService = TrueCallerService()
-            val authorizationToken = "Bearer "+ this.config.getTrueCallerToken()
-            val viewModelFactory = MainViewModelFactory(trueCallerService)
-            viewModel = ViewModelProvider(this, viewModelFactory).get(MainViewModel::class.java)
-            viewModel.getResponse(callContact!!.number, authorizationToken, networkConnectionInterceptor)
-            viewModel.myResponse.observe(this, { response ->
-                if (response.isSuccessful) {
-                    if (response.body()?.name!! == NO_INTERNET) {
-                        caller_number.beGone() //No Internet
-                    } else {
-                        val name = TRUECALLER + response.body()?.name!!
-                        caller_name_label.text = name
-                        caller_number.text = callContact!!.number
-                    }
-                } else {
-                    caller_number.beGone() //No response from truecaller
-                }
-            })
+            caller_number.beGone()
         }
 
         if (avatar != null) {
             caller_avatar.setImageBitmap(avatar)
         }
+
+//        Truecaller updateOtherPersonsInfo
+        try {
+            val trueCallerService = TrueCallerService()
+            val authorizationToken = "Bearer "+ this.config.getTrueCallerToken()
+            var serverMode = this.config.getTrueCallerServer()!!.lowercase()
+            val viewModelFactory = MainViewModelFactory(trueCallerService)
+            viewModel = ViewModelProvider(this, viewModelFactory).get(MainViewModel::class.java)
+            viewModel.getResponse(callContact!!.number, authorizationToken, serverMode, networkConnectionInterceptor)
+            viewModel.myResponse.observe(this) { response ->
+                if (response.isSuccessful) {
+                    var truecallerName = "Unknown Caller"
+                    if (response.body()?.name != null) {
+                        truecallerName = response.body()?.name!!
+                    }
+                    val truecallerCity: String? = response.body()?.city
+                    val truecallerCarrier: String? = response.body()?.carrier
+                    var truecallerSpamType: String? = response.body()?.spamType
+                    var truecallerNumReports: String? = response.body()?.numReports
+                    println("From callActivity")
+                    println(response.body())
+                    truecaller_name_label.text = truecallerName
+
+                    if (truecallerCity != null){
+                        if (truecallerCarrier != null){
+                            val v= "$truecallerCity , $truecallerCarrier"
+                            truecaller_from_carrier.text = v
+                        } else{
+                            truecaller_from_carrier.text=truecallerCity
+                        }
+                    } else{
+                        truecaller_from_carrier.text=truecallerCarrier
+                    }
+
+                    if (truecallerSpamType != null) {
+                        if (truecallerNumReports != null) {
+                            truecaller_spam_type_number.setTextColor(getResources().getColor(R.color.md_red));
+                            val v="$truecallerSpamType Reported $truecallerNumReports times"
+                            truecaller_spam_type_number.text = v
+                        }
+                        else {
+                            truecaller_spam_type_number.text = truecallerSpamType
+                        }
+                    }
+                }
+            }
+        } catch (e: IOException) {
+        }
     }
+
+//    private fun updateOtherPersonsInfo1(avatar: Bitmap?,networkConnectionInterceptor: NetworkConnectionInterceptor) {
+//        if (callContact == null) {
+//            return
+//        }
+//
+//        caller_name_label.text = if (callContact!!.name.isNotEmpty()) callContact!!.name else getString(R.string.unknown_caller)
+//        if (callContact!!.number.isNotEmpty() && callContact!!.number != callContact!!.name) {
+//            caller_number.text = callContact!!.number
+//        } else {
+//            val trueCallerService = TrueCallerService()
+//            val authorizationToken = "Bearer "+ this.config.getTrueCallerToken()
+//            val viewModelFactory = MainViewModelFactory(trueCallerService)
+//            viewModel = ViewModelProvider(this, viewModelFactory).get(MainViewModel::class.java)
+//            viewModel.getResponse(callContact!!.number, authorizationToken, networkConnectionInterceptor)
+//            viewModel.myResponse.observe(this, { response ->
+//                if (response.isSuccessful) {
+//                    if (response.body()?.name!! == NO_INTERNET) {
+//                        caller_number.beGone() //No Internet
+//                    } else {
+//                        val name = TRUECALLER + response.body()?.name!!
+//                        caller_name_label.text = name
+//                        caller_number.text = callContact!!.number
+//                    }
+//                } else {
+//                    caller_number.beGone() //No response from truecaller
+//                }
+//            })
+//        }
+//
+//        if (avatar != null) {
+//            caller_avatar.setImageBitmap(avatar)
+//        }
+//    }
 
     @SuppressLint("MissingPermission")
     private fun checkCalledSIMCard() {

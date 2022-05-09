@@ -28,6 +28,7 @@
     <!-- TrueCaller auth Token -->
     <string name="truecaller_auth_token">Truecaller Auth Token</string>
     <string name="token">Token</string>
+    <string name="server" translatable="false">Server</string>
 
     <!-- Dialer -->
     <string name="dialer">Dialer</string>
@@ -93,6 +94,7 @@
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
+    <string name="truecaller_server">Truecaller Server</string>
 
     <!--
         Haven't found some strings? There's more at

@@ -77,6 +77,21 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/settings_truecaller_server_holder"
+                style="@style/SettingsHolderTextViewOneLinerStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ripple_top_corners" >
+
+                <com.simplemobiletools.commons.views.MyTextView
+                    android:id="@+id/settings_truecaller_server"
+                    style="@style/SettingsTextLabelStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/truecaller_server" />
+            </RelativeLayout>
+
+            <RelativeLayout
                 android:id="@+id/settings_use_english_holder"
                 style="@style/SettingsHolderCheckboxStyle"
                 android:layout_width="match_parent"

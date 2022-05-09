@@ -67,4 +67,24 @@ class Config(context: Context) : BaseConfig(context) {
     fun getTrueCallerToken(): String? {
         return prefs.getString(TRUECALLER_TOKEN, "")
     }
+
+    fun saveTrueCallerServer(trueCallerServer: String) {
+        prefs.edit().putString(TRUECALLER_SERVER, trueCallerServer).apply()
+    }
+    fun getTrueCallerServer(): String? {
+        return prefs.getString(TRUECALLER_SERVER, "demo")
+    }
+//    fun getBaseUrl(): String? {
+//        if (getTrueCallerServer() != null){
+//            if (getTrueCallerServer()!!.lowercase() == "demo"){
+//                return PROXY_BASE_URL
+//            } else if (getTrueCallerServer()!!.lowercase() == "truecaller") {
+//                return TRUECALLER_BASE_URL
+//            } else {
+//                return  PROXY_BASE_URL
+//            }
+//        } else {
+//            return PROXY_BASE_URL
+//        }
+//    }
 }
