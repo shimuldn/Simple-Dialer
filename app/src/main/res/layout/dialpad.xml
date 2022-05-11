@@ -311,7 +311,7 @@
         android:id="@+id/dialpad_0_holder"
         android:layout_width="0dp"
         android:layout_height="75dp"
-        android:layout_marginBottom="@dimen/activity_margin"
+        android:layout_marginBottom="0dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/zero"
         app:layout_constraintBottom_toBottomOf="parent"
