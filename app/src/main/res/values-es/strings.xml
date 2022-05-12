@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Marcador Simple</string>
     <string name="app_launcher_name">Marcador</string>
@@ -11,7 +12,7 @@
     <string name="no_previous_calls">No se han encontrado llamadas previas</string>
     <string name="could_not_access_the_call_history">No se pudo acceder al historial de llamadas</string>
     <string name="request_access">Solicitar acceso</string>
-    <string name="remove_confirmation">¿Estás seguro que quieres eliminar los elementos seleccionados del historial de llamadas?</string>
+    <string name="remove_confirmation">¿Estás seguro que quieres eliminar los elementos seleccionados del historial de llamadas\?</string>
     <string name="clear_history_confirmation">¿Está seguro de que desea eliminar todo del historial de llamadas?</string>
     <string name="send_sms">Enviar SMS</string>
     <string name="show_grouped_calls">Mostrar llamadas agrupadas</string>

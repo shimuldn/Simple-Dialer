@@ -10,6 +10,7 @@ import android.graphics.drawable.RippleDrawable
 import android.media.AudioManager
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.os.PowerManager
 import android.telecom.Call
 import android.telecom.CallAudioState
@@ -21,7 +22,6 @@ import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.MINUTE_SECONDS
 import com.simplemobiletools.commons.helpers.isOreoMr1Plus
 import com.simplemobiletools.commons.helpers.isOreoPlus
-import com.simplemobiletools.dialer.App
 import com.simplemobiletools.dialer.MainViewModel
 import com.simplemobiletools.dialer.MainViewModelFactory
 import com.simplemobiletools.dialer.R
@@ -52,7 +52,7 @@ class CallActivity : SimpleActivity() {
     private var proximityWakeLock: PowerManager.WakeLock? = null
     private var callDuration = 0
     private val callContactAvatarHelper by lazy { CallContactAvatarHelper(this) }
-    private val callDurationHelper by lazy { (application as App).callDurationHelper }
+    private val callDurationHandler = Handler(Looper.getMainLooper())
     private var dragDownX = 0f
     private var stopAnimation = false
 
@@ -87,9 +87,7 @@ class CallActivity : SimpleActivity() {
     override fun onDestroy() {
         super.onDestroy()
         CallManager.unregisterCallback(callCallback)
-        if (proximityWakeLock?.isHeld == true) {
-            proximityWakeLock!!.release()
-        }
+        disableProximitySensor()
     }
 
     override fun onBackPressed() {
@@ -294,6 +292,12 @@ class CallActivity : SimpleActivity() {
         val newRoute = if (isSpeakerOn) CallAudioState.ROUTE_SPEAKER else CallAudioState.ROUTE_EARPIECE
         CallManager.inCallService?.setAudioRoute(newRoute)
         call_toggle_speaker.contentDescription = getString(if (isSpeakerOn) R.string.turn_speaker_off else R.string.turn_speaker_on)
+
+        if (isSpeakerOn) {
+            disableProximitySensor()
+        } else {
+            enableProximitySensor()
+        }
     }
 
     private fun toggleMicrophone() {
@@ -492,7 +496,7 @@ class CallActivity : SimpleActivity() {
     }
 
     private fun initOutgoingCallUI() {
-        initProximitySensor()
+        enableProximitySensor()
         incoming_call_holder.beGone()
         ongoing_call_holder.beVisible()
     }
@@ -502,17 +506,10 @@ class CallActivity : SimpleActivity() {
     }
 
     private fun callStarted() {
-        initProximitySensor()
+        enableProximitySensor()
         incoming_call_holder.beGone()
         ongoing_call_holder.beVisible()
-        callDurationHelper.onDurationChange {
-            callDuration = it
-            runOnUiThread {
-                if (!isCallEnded) {
-                    call_status_label.text = callDuration.getFormattedDuration()
-                }
-            }
-        }
+        callDurationHandler.post(updateCallDurationTask)
     }
 
     private fun showPhoneAccountPicker() {
@@ -525,9 +522,7 @@ class CallActivity : SimpleActivity() {
 
     private fun endCall() {
         CallManager.reject()
-        if (proximityWakeLock?.isHeld == true) {
-            proximityWakeLock!!.release()
-        }
+        disableProximitySensor()
 
         if (isCallEnded) {
             finishAndRemoveTask()
@@ -560,6 +555,16 @@ class CallActivity : SimpleActivity() {
         }
     }
 
+    private val updateCallDurationTask = object : Runnable {
+        override fun run() {
+            callDuration = CallManager.getCallDuration()
+            if (!isCallEnded) {
+                call_status_label.text = callDuration.getFormattedDuration()
+                callDurationHandler.postDelayed(this, 1000)
+            }
+        }
+    }
+
     @SuppressLint("NewApi")
     private fun addLockScreenFlags() {
         if (isOreoMr1Plus()) {
@@ -581,11 +586,17 @@ class CallActivity : SimpleActivity() {
         }
     }
 
-    private fun initProximitySensor() {
+    private fun enableProximitySensor() {
         if (!config.disableProximitySensor && (proximityWakeLock == null || proximityWakeLock?.isHeld == false)) {
             val powerManager = getSystemService(Context.POWER_SERVICE) as PowerManager
             proximityWakeLock = powerManager.newWakeLock(PowerManager.PROXIMITY_SCREEN_OFF_WAKE_LOCK, "com.simplemobiletools.dialer.pro:wake_lock")
             proximityWakeLock!!.acquire(60 * MINUTE_SECONDS * 1000L)
+        }
+    }
+
+    private fun disableProximitySensor() {
+        if (proximityWakeLock?.isHeld == true) {
+            proximityWakeLock!!.release()
         }
     }
 }
