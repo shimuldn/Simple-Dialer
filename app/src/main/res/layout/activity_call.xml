@@ -187,6 +187,18 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.9" />
 
+        <ImageButton
+            android:id="@+id/truecaller_refresh_btn"
+            android:layout_width="75dp"
+            android:layout_height="62dp"
+            android:layout_marginBottom="20dp"
+            android:contentDescription="@string/refresh_truecaller"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@+id/call_dialpad"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@android:drawable/stat_notify_sync_noanim"
+            tools:visibility="visible" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout

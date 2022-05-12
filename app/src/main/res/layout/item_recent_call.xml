@@ -29,13 +29,26 @@
 
         <TextView
             android:id="@+id/item_recents_name"
-            android:layout_width="match_parent"
+            android:layout_width="175dp"
             android:layout_height="wrap_content"
             android:layout_toEndOf="@+id/item_recents_image"
             android:ellipsize="end"
             android:maxLines="1"
             android:textSize="@dimen/bigger_text_size"
             tools:text="John Doe" />
+
+        <TextView
+            android:id="@+id/item_recents_truecaller_name"
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="182dp"
+            android:layout_marginEnd="1dp"
+            android:layout_toEndOf="@+id/item_recents_image"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textSize="@dimen/bigger_text_size"
+            tools:text="Truecaller Name" />
 
         <ImageView
             android:id="@+id/item_recents_sim_image"

@@ -33,4 +33,5 @@ const val COUNTRY_CODE = "in"
 //const val TRUECALLER_BASE_URL = "https://webapi-noneu.truecaller.com"
 //const val PROXY_BASE_URL = "https://true.shimul.me"
 
+const val USE_TRUECALLER = "use_truecaller"
 

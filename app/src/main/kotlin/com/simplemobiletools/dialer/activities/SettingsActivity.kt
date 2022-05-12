@@ -26,8 +26,9 @@ class SettingsActivity : SimpleActivity() {
     override fun onResume() {
         super.onResume()
 
-        setupPurchaseThankYou()
         setupCustomizeColors()
+        setupUseTruecallerService()
+        setupUseTruecallerServiceSettingsItems()
         setupUseEnglish()
         setupManageBlockedNumbers()
         setupManageSpeedDial()
@@ -70,23 +71,10 @@ class SettingsActivity : SimpleActivity() {
         return super.onCreateOptionsMenu(menu)
     }
 
-    private fun setupPurchaseThankYou() {
-//        settings_purchase_thank_you_holder.beGoneIf(isOrWasThankYouInstalled())
-//
-//        // make sure the corners at ripple fit the stroke rounded corners
-//        if (settings_purchase_thank_you_holder.isGone()) {
-//            settings_use_english_holder.background = resources.getDrawable(R.drawable.ripple_top_corners, theme)
-//        }
-//
-//        settings_purchase_thank_you_holder.setOnClickListener {
-//            launchPurchaseThankYouIntent()
-//        }
-    }
-
     private fun setupCustomizeColors() {
-        settings_customize_colors_label.text = getCustomizeColorsString()
+//        settings_customize_colors_label.text = "Customize colors"
         settings_customize_colors_holder.setOnClickListener {
-            handleCustomizeColorsClick()
+            startCustomizationActivity()
         }
     }
 
@@ -102,6 +90,29 @@ class SettingsActivity : SimpleActivity() {
             settings_use_english.toggle()
             config.useEnglish = settings_use_english.isChecked
             System.exit(0)
+        }
+    }
+
+    private fun setupUseTruecallerService() {
+        settings_use_truecaller_service_switch.isChecked = config.useTruecaller
+        settings_use_truecaller_service_switch.setOnClickListener {
+            config.useTruecaller = !config.useTruecaller
+            settings_use_truecaller_service_switch.isChecked = config.useTruecaller
+            setupUseTruecallerServiceSettingsItems()
+        }
+    }
+
+    private fun setupUseTruecallerServiceSettingsItems() {
+        if (config.useTruecaller) {
+            settings_truecaller_auth_token_holder.beVisible()
+            settings_truecaller_auth_token.beVisible()
+            settings_truecaller_server_holder.beVisible()
+            settings_truecaller_server.beVisible()
+        } else {
+            settings_truecaller_auth_token_holder.beGone()
+            settings_truecaller_auth_token.beGone()
+            settings_truecaller_server_holder.beGone()
+            settings_truecaller_server.beGone()
         }
     }
 

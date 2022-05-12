@@ -13,7 +13,7 @@
     <RelativeLayout
         android:id="@+id/dialpad_1_holder"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="74dp"
         android:layout_marginStart="@dimen/activity_margin"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/one"
@@ -35,7 +35,7 @@
     <RelativeLayout
         android:id="@+id/dialpad_2_holder"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="74dp"
         android:layout_marginBottom="@dimen/medium_margin"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/two"
@@ -66,7 +66,7 @@
     <RelativeLayout
         android:id="@+id/dialpad_3_holder"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="74dp"
         android:layout_marginEnd="@dimen/activity_margin"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/three"
@@ -98,7 +98,7 @@
     <RelativeLayout
         android:id="@+id/dialpad_4_holder"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="75dp"
         android:layout_marginStart="@dimen/activity_margin"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/four"
@@ -130,7 +130,7 @@
     <RelativeLayout
         android:id="@+id/dialpad_5_holder"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="75dp"
         android:layout_marginBottom="@dimen/medium_margin"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/five"
@@ -161,7 +161,7 @@
     <RelativeLayout
         android:id="@+id/dialpad_6_holder"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="75dp"
         android:layout_marginEnd="@dimen/activity_margin"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/six"
@@ -193,7 +193,7 @@
     <RelativeLayout
         android:id="@+id/dialpad_7_holder"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="75dp"
         android:layout_marginStart="@dimen/activity_margin"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/seven"
@@ -225,7 +225,7 @@
     <RelativeLayout
         android:id="@+id/dialpad_8_holder"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="75dp"
         android:layout_marginBottom="@dimen/medium_margin"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/eight"
@@ -256,7 +256,7 @@
     <RelativeLayout
         android:id="@+id/dialpad_9_holder"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="75dp"
         android:layout_marginEnd="@dimen/activity_margin"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/nine"
@@ -288,7 +288,7 @@
     <RelativeLayout
         android:id="@+id/dialpad_asterisk_holder"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="75dp"
         android:layout_marginStart="@dimen/activity_margin"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/asterisk"
@@ -310,8 +310,8 @@
     <RelativeLayout
         android:id="@+id/dialpad_0_holder"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/activity_margin"
+        android:layout_height="75dp"
+        android:layout_marginBottom="0dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/zero"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -345,7 +345,7 @@
     <RelativeLayout
         android:id="@+id/dialpad_hashtag_holder"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="75dp"
         android:layout_marginEnd="@dimen/activity_margin"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/hashtag"

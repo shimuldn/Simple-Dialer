@@ -74,6 +74,12 @@ class Config(context: Context) : BaseConfig(context) {
     fun getTrueCallerServer(): String? {
         return prefs.getString(TRUECALLER_SERVER, "demo")
     }
+
+    var useTruecaller: Boolean
+        get() = prefs.getBoolean(USE_TRUECALLER, false)
+        set(useTruecaller) = prefs.edit().putBoolean(USE_TRUECALLER, useTruecaller).apply()
+
+
 //    fun getBaseUrl(): String? {
 //        if (getTrueCallerServer() != null){
 //            if (getTrueCallerServer()!!.lowercase() == "demo"){

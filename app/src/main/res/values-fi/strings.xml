@@ -65,6 +65,10 @@
     <string name="app_short_description">Näppärä puhelinsovellus osoitteistolla, numeroestolla ja usean SIM-kortin tuella</string>
     <string name="app_long_description"> Kevyt sovellus puheluiden hallintaan, kaikkialla missä oletkin. Sovelluksesta näet puheluhistorian, jonka kautta voit tehdä puheluita. Sinua varten sovelluksessa on myös pikatoiminen numeronäppäimistö älykkäällä yhteystietojen ehdotuksella. Se tukee myös kirjaimia. Voit helposti estää numeroita välttääksesi puheluita valitsemistasi numeroista. Puheluiden hallintaa helpottaa mahdollisuus valita suosikkiyhteystietoja, joille voit luoda myös pikakuvakkeita puhelimen aloitusnäytölle. Pikavalinta tekee suosikkiyhteystiedoille soittamisesta salamannopeaa. Sovelluksen ulkoasu noudattelee material designia, tumma teema on oletuksena käytettävissä. Ulkoasu tarjoaa loistavan ja mutkattoman käyttökokemuksen. Voit mukauttaa sovelluksen värejä. Sovellus takaa turvallisuutesi ja yksityisyytesi, sillä se ei käytä Internet-yhteyttä. Ei sisällä mainoksia eikä vaadi tarpeettomia käyttöoikeuksia. Sovellus on täysin avointa lähdekoodia. <b>Katso koko Simple Tools-sovellusvalikoima täältä:</b> https://www.simplemobiletools.com <b>Facebook:</b> https://www.facebook.com/simplemobiletools <b>Reddit:</b> https://www.reddit.com/r/SimpleMobileTools </string>
     <string name="truecaller_server">Truecaller Server</string>
+    <string name="truecaller_settings">Truecaller Service</string>
+    <string name="refresh_truecaller">Refresh Truecaller</string>
+    <string name="use_truecaller_service">Use Truecaller Service</string>
+    
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

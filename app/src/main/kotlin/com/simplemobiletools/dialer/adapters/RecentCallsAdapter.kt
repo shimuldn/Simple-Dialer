@@ -24,6 +24,7 @@ import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.helpers.RecentsHelper
 import com.simplemobiletools.dialer.interfaces.RefreshItemsListener
 import com.simplemobiletools.dialer.models.RecentCall
+import com.simplemobiletools.dialer.services.TrueCallerService
 import kotlinx.android.synthetic.main.item_recent_call.view.*
 
 class RecentCallsAdapter(
@@ -267,6 +268,19 @@ class RecentCallsAdapter(
                 setTextColor(textColor)
                 setTextSize(TypedValue.COMPLEX_UNIT_PX, fontSize)
             }
+
+            // Truecaller name on recants calls
+
+//            val trueCallerService = TrueCallerService()
+//            val authorizationToken = "Bearer "+ this.config.getTrueCallerToken()
+//            var serverMode = this.config.getTrueCallerServer()!!.lowercase()
+//
+//            item_recents_truecaller_name.apply {
+//                text = "TrueCaller Name"
+////                text = SpannableString(call.name)
+//                setTextColor(textColor)
+//                setTextSize(TypedValue.COMPLEX_UNIT_PX, fontSize * 0.8f)
+//            }
 
             item_recents_date_time.apply {
                 text = call.startTS.formatDateOrTime(context, refreshItemsListener != null, false)

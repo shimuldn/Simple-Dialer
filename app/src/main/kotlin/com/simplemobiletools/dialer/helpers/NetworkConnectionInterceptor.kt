@@ -39,9 +39,9 @@ class NetworkConnectionInterceptor(context: Context) : Interceptor {
 //            } catch (e: Exception){}
             return chain.proceed(chain.request())
         } catch (e: Exception) {
-            println("Error 112 in intercept ${e.localizedMessage}")
-            println("Error 113 in intercept ${e.cause}")
-            println("Error 114 in intercept ${e.message}")
+//            println("Error 112 in intercept ${e.localizedMessage}")
+//            println("Error 113 in intercept ${e.cause}")
+//            println("Error 114 in intercept ${e.message}")
 
             val noInternetResponse = "{ \"name\":\"$NO_INTERNET\"}"
             val responseBody = noInternetResponse.toResponseBody("application/json".toMediaTypeOrNull())

@@ -96,6 +96,10 @@
         https://www.reddit.com/r/SimpleMobileTools
     </string>
     <string name="truecaller_server">Truecaller Server</string>
+    <string name="truecaller_settings">Truecaller Service</string>
+    <string name="refresh_truecaller">Refresh Truecaller</string>
+    <string name="use_truecaller_service">Use Truecaller Service</string>
+    
 
     <!--
         Haven't found some strings? There's more at

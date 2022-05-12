@@ -44,6 +44,65 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/settings_truecaller_service_settings_label"
+            style="@style/SettingsSectionLabelStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/truecaller_settings" />
+
+        <LinearLayout
+            android:id="@+id/settings_use_truecaller_service_switch_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/medium_margin"
+            android:background="@drawable/section_holder_stroke"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/settings_use_truecaller_service_switch"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="14dp"
+                android:text="@string/use_truecaller_service"
+                android:visibility="visible"
+                tools:visibility="visible" />
+
+            <RelativeLayout
+                android:id="@+id/settings_truecaller_auth_token_holder"
+                style="@style/SettingsHolderTextViewOneLinerStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ripple_top_corners"
+                android:visibility="gone">
+
+                <com.simplemobiletools.commons.views.MyTextView
+                    android:id="@+id/settings_truecaller_auth_token"
+                    style="@style/SettingsTextLabelStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/truecaller_auth_token"
+                    android:visibility="gone" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/settings_truecaller_server_holder"
+                style="@style/SettingsHolderTextViewOneLinerStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ripple_top_corners"
+                android:visibility="gone">
+
+                <com.simplemobiletools.commons.views.MyTextView
+                    android:id="@+id/settings_truecaller_server"
+                    style="@style/SettingsTextLabelStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/truecaller_server" />
+            </RelativeLayout>
+        </LinearLayout>
+        <TextView
             android:id="@+id/settings_general_settings_label"
             style="@style/SettingsSectionLabelStyle"
             android:layout_width="match_parent"
@@ -57,39 +116,6 @@
             android:layout_margin="@dimen/medium_margin"
             android:background="@drawable/section_holder_stroke"
             android:orientation="vertical">
-
-            <RelativeLayout
-                android:id="@+id/settings_truecaller_auth_token_holder"
-                style="@style/SettingsHolderTextViewOneLinerStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/ripple_top_corners"
-                android:visibility="visible"
-                tools:visibility="visible">
-
-                <com.simplemobiletools.commons.views.MyTextView
-                    android:id="@+id/settings_truecaller_auth_token"
-                    style="@style/SettingsTextLabelStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/truecaller_auth_token" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/settings_truecaller_server_holder"
-                style="@style/SettingsHolderTextViewOneLinerStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/ripple_top_corners" >
-
-                <com.simplemobiletools.commons.views.MyTextView
-                    android:id="@+id/settings_truecaller_server"
-                    style="@style/SettingsTextLabelStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/truecaller_server" />
-            </RelativeLayout>
 
             <RelativeLayout
                 android:id="@+id/settings_use_english_holder"

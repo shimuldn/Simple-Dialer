@@ -144,6 +144,10 @@ class CallActivity : SimpleActivity() {
             endCall()
         }
 
+        truecaller_refresh_btn.setOnClickListener {
+            refreshTruecaller()
+        }
+
         dialpad_0_holder.setOnClickListener { dialpadPressed('0') }
         dialpad_1_holder.setOnClickListener { dialpadPressed('1') }
         dialpad_2_holder.setOnClickListener { dialpadPressed('2') }
@@ -329,53 +333,76 @@ class CallActivity : SimpleActivity() {
             caller_avatar.setImageBitmap(avatar)
         }
 
-//        Truecaller updateOtherPersonsInfo
-        try {
-            val trueCallerService = TrueCallerService()
-            val authorizationToken = "Bearer "+ this.config.getTrueCallerToken()
-            var serverMode = this.config.getTrueCallerServer()!!.lowercase()
-            val viewModelFactory = MainViewModelFactory(trueCallerService)
-            viewModel = ViewModelProvider(this, viewModelFactory).get(MainViewModel::class.java)
-            viewModel.getResponse(callContact!!.number, authorizationToken, serverMode, networkConnectionInterceptor)
-            viewModel.myResponse.observe(this) { response ->
-                if (response.isSuccessful) {
-                    var truecallerName = "Unknown Caller"
-                    if (response.body()?.name != null) {
-                        truecallerName = response.body()?.name!!
-                    }
-                    val truecallerCity: String? = response.body()?.city
-                    val truecallerCarrier: String? = response.body()?.carrier
-                    var truecallerSpamType: String? = response.body()?.spamType
-                    var truecallerNumReports: String? = response.body()?.numReports
-                    println("From callActivity")
-                    println(response.body())
-                    truecaller_name_label.text = truecallerName
+        getTruecallerInfo(networkConnectionInterceptor)
+    }
 
-                    if (truecallerCity != null){
-                        if (truecallerCarrier != null){
-                            val v= "$truecallerCity , $truecallerCarrier"
-                            truecaller_from_carrier.text = v
-                        } else{
-                            truecaller_from_carrier.text=truecallerCity
+    private fun getTruecallerInfo(networkConnectionInterceptor: NetworkConnectionInterceptor) {
+        setupTruecallerViewCallActivity()
+        if (config.useTruecaller) {
+            try {
+                val trueCallerService = TrueCallerService()
+                val authorizationToken = "Bearer " + this.config.getTrueCallerToken()
+                val serverMode = this.config.getTrueCallerServer()!!.lowercase()
+                val viewModelFactory = MainViewModelFactory(trueCallerService)
+                viewModel = ViewModelProvider(this, viewModelFactory).get(MainViewModel::class.java)
+                viewModel.getResponse(callContact!!.number, authorizationToken, serverMode, networkConnectionInterceptor)
+                viewModel.myResponse.observe(this) { response ->
+                    if (response.isSuccessful) {
+                        var truecallerName = "Unknown Caller"
+                        if (response.body()?.name != null) {
+                            truecallerName = response.body()?.name!!
                         }
-                    } else{
-                        truecaller_from_carrier.text=truecallerCarrier
-                    }
+                        val truecallerCity: String? = response.body()?.city
+                        val truecallerCarrier: String? = response.body()?.carrier
+                        var truecallerSpamType: String? = response.body()?.spamType
+                        var truecallerNumReports: String? = response.body()?.numReports
+                        truecaller_name_label.text = truecallerName
 
-                    if (truecallerSpamType != null) {
-                        if (truecallerNumReports != null) {
-                            truecaller_spam_type_number.setTextColor(getResources().getColor(R.color.md_red));
-                            val v="$truecallerSpamType Reported $truecallerNumReports times"
-                            truecaller_spam_type_number.text = v
+                        if (truecallerCity != null) {
+                            if (truecallerCarrier != null) {
+                                val v = "$truecallerCity , $truecallerCarrier"
+                                truecaller_from_carrier.text = v
+                            } else {
+                                truecaller_from_carrier.text = truecallerCity
+                            }
+                        } else {
+                            truecaller_from_carrier.text = truecallerCarrier
                         }
-                        else {
-                            truecaller_spam_type_number.text = truecallerSpamType
+
+                        if (truecallerSpamType != null) {
+                            if (truecallerNumReports != null) {
+                                truecaller_spam_type_number.setTextColor(getResources().getColor(R.color.md_red));
+                                val v = "$truecallerSpamType Reported $truecallerNumReports times"
+                                truecaller_spam_type_number.text = v
+                            } else {
+                                truecaller_spam_type_number.text = truecallerSpamType
+                            }
                         }
                     }
                 }
+            } catch (e: IOException) {
             }
-        } catch (e: IOException) {
         }
+    }
+
+    private fun setupTruecallerViewCallActivity() {
+        if (config.useTruecaller) {
+            truecaller_name_label.beVisible()
+            truecaller_from_carrier.beVisible()
+            truecaller_spam_type_number.beVisible()
+            truecaller_refresh_btn.beVisible()
+        } else {
+            truecaller_name_label.beGone()
+            truecaller_from_carrier.beGone()
+            truecaller_spam_type_number.beGone()
+            truecaller_refresh_btn.beGone()
+        }
+    }
+
+    private fun refreshTruecaller() {
+        val networkConnectionInterceptor = NetworkConnectionInterceptor(this)
+        getTruecallerInfo(networkConnectionInterceptor)
+//        truecaller_refresh_btn.beGone()
     }
 
 //    private fun updateOtherPersonsInfo1(avatar: Bitmap?,networkConnectionInterceptor: NetworkConnectionInterceptor) {

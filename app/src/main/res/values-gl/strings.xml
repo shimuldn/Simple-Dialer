@@ -66,6 +66,10 @@
     <string name="app_short_description">Xestor de chamadas de teléfono con libreta, bloqueo de números e soporte multi-SIM</string>
     <string name="app_long_description"> Unha aplicación para xestionar chamadas, independentemente do sitio no que estea. Posúe un rexistro de chamadas de acceso rápido. Existe tamén un marcador que suxire contactos. Pode bloquear números facilmente e evitar chamadas non desexadas. Pode ligar números á marcación rápida, facendo que chamar aos contactos favoritos sexa moito máis rápido. Para xestionar as súas chamadas, a aplicación Teléfono tamén dá soporte aos contactos favoritos e permite crear atallos para os contactos na súa pantalla inicial. Dispoñible cun deseño Material e cun tema escuro que proporciona unha experiencia moi agradable. Non pide acesso a Internet o que lle confire privacidade, seguranza e estabilidade. Non posúe anuncios nin utiliza permisos innecesarios. É de código aberto e permite personalización de cores. <b>Consulta a nosa páxina aqui:</b> https://www.simplemobiletools.com <b>Facebook:</b> https://www.facebook.com/simplemobiletools <b>Reddit:</b> https://www.reddit.com/r/SimpleMobileTools </string>
     <string name="truecaller_server">Truecaller Server</string>
+    <string name="truecaller_settings">Truecaller Service</string>
+    <string name="refresh_truecaller">Refresh Truecaller</string>
+    <string name="use_truecaller_service">Use Truecaller Service</string>
+    
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
