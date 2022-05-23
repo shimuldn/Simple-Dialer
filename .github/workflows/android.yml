@@ -13,8 +13,8 @@ on:
 jobs:
   package-release-apk:
     name: Generate release APK
-#     runs-on: ubuntu-latest
-    runs-on: [self-hosted]
+    runs-on: ubuntu-latest
+#     runs-on: [self-hosted]
     steps:
       - name: Checkout code for app release
         uses: actions/checkout@v2
